@@ -1,1 +1,1 @@
-# quintpink.github.io
+# A pastime blog
