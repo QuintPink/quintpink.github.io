@@ -1,0 +1,48 @@
+baseURL: https://quintpink.github.io/
+languageCode: "en-us"
+title: Quillogs
+theme: [PaperMod]
+
+
+menu:
+  main:
+    - name: Archive
+      url: archives
+      weight: 5
+    - name: Search
+      url: search/
+      weight: 10
+    - name: Tags
+      url: tags/
+      weight: 10
+
+taxonomies:
+  tag: "tags"
+  category: "categories"
+  author: authors
+
+params:
+  math: true
+  ShowAllPagesInArchive: true
+  homeInfoParams:
+    Title: Good Morning 
+    Content: Welcome to the superior blog of 
+
+  author:
+    name: Quinten Pinkhof
+  socialIcons:
+    - name: linkedin
+      url: https://be.linkedin.com/in/quinten-pinkhof
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
