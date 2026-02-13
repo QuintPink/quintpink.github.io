@@ -23,6 +23,7 @@ languages:
           weight: 10
 
 params:
+  ShowAllPagesInArchive: true
   homeInfoParams:
     Title: Good Morning 
     Content: Welcome to the superior blog of 
@@ -30,6 +31,19 @@ params:
   socialIcons:
     - name: linkedin
       url: https://be.linkedin.com/in/quinten-pinkhof
+
+  profileMode:
+    enabled: false
+    title: PaperMod
+    imageUrl: "#"
+    imageTitle: my image
+    # imageWidth: 120
+    # imageHeight: 120
+    buttons:
+      - name: Archives
+        url: archives
+      - name: Tags
+        url: tags
 
 outputs:
   home:
