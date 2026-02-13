@@ -2,3 +2,18 @@ baseURL: https://quintpink.github.io/
 languageCode: en-us
 title: My New Hugo Site
 theme: [PaperMod]
+
+params:
+  homeInfoParams:
+    Title: Good Morning 
+    Content: Welcome to the superior blog of 
+
+  socialIcons:
+    - name: linkedin
+      url: https://be.linkedin.com/in/quinten-pinkhof
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search
