@@ -1,6 +1,6 @@
 baseURL: https://quintpink.github.io/
 languageCode: en-us
-title: My New Hugo Site
+title: Quillogs
 theme: [PaperMod]
 
 params:
