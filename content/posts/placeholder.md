@@ -9,3 +9,9 @@ series: ["First Posts"]
 ShowToc: true
 TocOpen: true
 ---
+
+# First of all
+Once I have something interesting to say, I will let you know
+
+# Second of all
+See you soon!
