@@ -24,7 +24,7 @@ $$\vec{z} = a\vec{u} + b\vec{v}$$
 
 So in a 2D space, we can break down any vector $\vec{z}$ to its $\vec{u}$ and $\vec{v}$ contributions, which are a and b respectively. This is called decomposition. The tough part is actually finding a way to calculate a and b. If we do know them and forgot the value of $\vec{z}$, we can just recalculate $\vec{z}$ because the 
 
-![Figure 1](r2decomp.svg)
+![Figure 1](content/posts/r2decomp.svg)
 
 Now why does this explanation of 2D matter for Fourier? 
 Well, Fourier uses a set of waves with different frequencies to decompose the signal f(t) into, and the Fourier transform $X(f)$ tells you exactly what the contribution of the wave with frequency $f$ is! 
