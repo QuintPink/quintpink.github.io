@@ -26,7 +26,7 @@ params:
   ShowAllPagesInArchive: true
   homeInfoParams:
     Title: Good Morning 
-    Content: Welcome to the superior blog of 
+    Content: Inspired by Lilian Weng's blog, I decided to share my own thoughts and progressions. I am currently in my first year PhD on the topic of analytically embedded neural networks for edge accelerators. I hope you take something useful away from this blog. Have fun - Quint
 
   author:
     name: Quinten Pinkhof
