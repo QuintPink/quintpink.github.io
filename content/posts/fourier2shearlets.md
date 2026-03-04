@@ -51,12 +51,12 @@ $$ e^{-i2\pi f t} = \cos(-2\pi f t) + i\sin(-2\pi f t) = \cos(2\pi f t)  - i\sin
 The real cosine and imaginary sine together describe a wave of frequency $f$ with an initial phase of zero and an amplitude of 1. By multiplying with $x(t)$, we scale the "base" wave at every point t, based on $x(t)$. If the 'peaks and valleys' of your signal $x(t)$ align with the 'peaks and valleys' of the sine and cosine waves, the product remains mostly positive, and the integral accumulates into a large coefficient. If they don't match, the product oscillates above and below zero, and the integral cancels itself out. The final result is a single complex number where the magnitude tells you the total strength of that frequency across the entire signal, and the angle tells you the specific phase shift required to align that 'base' wave with the actual patterns found in $x(t)$.
 
 
- If you understand this, it should be clear that we are calculating the $f$ wave's contribution to the **whole** signal. You want to know the frequency contribution to a smaller window? Well sure we can apply the Fourier transform to the smaller window signal and look at the frequency contributions. However, we need to watch many cycles of our base waves to know precisely which frequencies are active in our (partial) signal: if we look at a small window in time, a wave with 100 Hz and with 101 Hz almost look identical, making it harder to distinguish who contributes what. If we get more cycles to look at though, the difference becomes clearer. Think about it like trying to determine if a car is going $100\text{ km/h}$ or $101\text{ km/h}$ by watching it move for only $10\text{ cm}$. You just don't have enough "runway" to measure the difference accurately. This is a fundamental trade-off between time resolution and frequency resolution: the better you want to know when a pop (high frequency) happens, the worse you know which frequency the pop really is (its more like a blob of high frequencies than a peak). If you want to know more precisely what exact frequency is present, you need a large window and you will lose precision in knowing when that exact frequency is present. If you want to have $\Delta f$ frequency resolution (i.e. able to distinguish between $f$ and $f + \Delta f$), you need at least a time window of $\frac{1}{\Delta f}$. 
+ If you understand this, it should be clear that we are calculating the $f$ wave's contribution to the **whole** signal. You want to know the frequency contribution to a smaller window? Well sure we can apply the Fourier transform to the smaller window signal and look at the frequency contributions. However, we need to watch many cycles of our base waves to know precisely which frequencies are active in our (partial) signal: if we look at a small window in time, a wave with 100 Hz and with 101 Hz almost look identical, making it harder to distinguish who contributes what. If we get more cycles to look at though, the difference becomes clearer. Think about it like trying to determine if a car is going $100\text{ km/h}$ or $101\text{ km/h}$ by watching it move for only $10\text{ cm}$. You just don't have enough "runway" to measure the difference accurately. This is a fundamental trade-off between time resolution and frequency resolution: the better you want to know when a pop (high frequency) happens, the worse you know which frequency the pop really is (its more like a blob of high frequencies than a peak). If you want to know more precisely what exact frequency is present, you need a large window and you will lose precision in knowing when that exact frequency is present. If you want to have $\Delta f$ frequency resolution (i.e. able to distinguish between $f$ and $f + \Delta f$), you need at least a time window of $\frac{1}{\Delta f}$ ([Gabor 1946](https://jcsphysics.net/lit/gabor1946.pdf)). 
 
 Things become even trickier when you realise that a difference between 1 Hz and 2 Hz is relatively way larger than a difference between 10,000 Hz and 10,0001 Hz. It just so happens to be that humans perceive sound and light logarithmically, which means we are more sensitive to changes in low frequencies than in high frequencies, which means we need more precision at the bottom of the frequency scale! So we have to increase our window size to be able to accommodate these large low-frequency resolutions we desire, but in the process we lose time resolution -- and all this while we already had the desired high-frequency resolution!  This my friends, is what gave way to wavelets and shearlets.
 
 ### Side quest: Logarithmic perception
-We say humans perceive light intensity and sound intensity logarithmically. This is the same thing as saying our senses only care about relative changes, not absolute changes. Why is this the same?
+We say humans perceive light intensity and sound intensity logarithmically (Fechner 1860). This is the same thing as saying our senses only care about relative changes, not absolute changes. Why is this the same?
 
 Scientists have figured out through that perception P has a logarithmic relationship with intensity I:
 
@@ -85,7 +85,7 @@ Therefore, our use of a logarithmic relationship is correct, as this is exactly 
 
 
 # From Fourier to Wavelet
-So we've established that Fourier has a fundamental problem: it forces us to choose between time resolution and frequency resolution, but we really want both! We want precise time localization for high frequencies (to know exactly when that drum hit happens) and precise frequency resolution for low frequencies (to distinguish between different bass notes). This seems impossible... until wavelets came along.
+So we've established that Fourier has a fundamental problem: it forces us to choose between time resolution and frequency resolution, but we really want both! We want precise time localization for high frequencies (to know exactly when that drum hit happens) and precise frequency resolution for low frequencies (to distinguish between different bass notes). This seems impossible... until wavelets came along. Ingrid Daubechies is one of the key contributors to wavelet theory ([1992](https://doi.org/10.1137/1.9781611970104)), and she is a fellow Belgian, so get your information from her :). 
 
 ### The wavelet solution: adaptive windows
 The key insight of wavelets is brilliantly simple: use different window sizes for different frequencies. 
@@ -133,7 +133,7 @@ Wavelets solve the time-frequency resolution trade-off beautifully... for 1D sig
 
 # From Wavelet to Shearlet
 
-We ended the last section with a teaser: wavelets are amazing for 1D signals, but what happens when we move to 2D? Can we just apply wavelets separately in the horizontal and vertical directions? Sure, and it works... sort of. But there's a hidden inefficiency lurking in this approach.
+We ended the last section with a teaser: wavelets are amazing for 1D signals, but what happens when we move to 2D? Can we just apply wavelets separately in the horizontal and vertical directions? Sure, and it works... sort of. But there's a hidden inefficiency lurking in this approach. Easley, Labate and Lim ([2008](https://doi.org/10.1016/j.acha.2007.09.003), [Kutyniok and Labate 2009](https://arxiv.org/abs/math/0605375)) are the founding fathers of the shearlet theory, and they explain clearly what I am saying below. 
 
 ### The directional problem
 Imagine you have an image with a sharp diagonal edge - maybe the edge of a building against the sky. This edge is essentially a 1D feature (it varies in one direction and is constant perpendicular to that direction). Intuitively, you'd want to represent this edge efficiently with basis functions that are also aligned with that direction.
@@ -209,3 +209,15 @@ Note: Curvelets achieve the same thing as shearlets, but the set of analyzing fu
 
 [^1]: More generally, a set of vectors is said to be linearly independent if none of the vectors can be formed through combination of the others. 
 [^2]: There are many choices for the mother wavelet $\psi(t)$, each with different properties (symmetry, compactness, smoothnes...)
+
+# References
+
+[1] Dennis Gabor. "["Theory Of Communication"](https://jcsphysics.net/lit/gabor1946.pdf)". (1946).
+
+[2] Gustav Theodor Fechner. "Elemente der Psychophysik". (1860).
+
+[3] Ingrid Daubechies. "["Ten Lectures on Wavelets"](https://doi.org/10.1137/1.9781611970104)". (1992).
+
+[4] Glenn Easley, et al. "["Sparse directional image representations using the discrete shearlet transform"](https://doi.org/10.1016/j.acha.2007.09.003)". (2008).
+
+[5] Gitta Kutyniok, Demetrio Labate. ["Resolution of the wavefront set using continuous shearlets"](https://arxiv.org/abs/math/0605375). arXiv preprint at arXiv:math/0605375 (2009).
