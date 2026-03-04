@@ -212,12 +212,12 @@ Note: Curvelets achieve the same thing as shearlets, but the set of analyzing fu
 
 # References
 
-[1] Dennis Gabor. "["Theory Of Communication"](https://jcsphysics.net/lit/gabor1946.pdf)". (1946).
+[1] Dennis Gabor. ["Theory Of Communication"](https://jcsphysics.net/lit/gabor1946.pdf). (1946).
 
 [2] Gustav Theodor Fechner. "Elemente der Psychophysik". (1860).
 
-[3] Ingrid Daubechies. "["Ten Lectures on Wavelets"](https://doi.org/10.1137/1.9781611970104)". (1992).
+[3] Ingrid Daubechies. ["Ten Lectures on Wavelets"](https://doi.org/10.1137/1.9781611970104). (1992).
 
-[4] Glenn Easley, et al. "["Sparse directional image representations using the discrete shearlet transform"](https://doi.org/10.1016/j.acha.2007.09.003)". (2008).
+[4] Glenn Easley, et al. ["Sparse directional image representations using the discrete shearlet transform"](https://doi.org/10.1016/j.acha.2007.09.003). (2008).
 
 [5] Gitta Kutyniok, Demetrio Labate. ["Resolution of the wavefront set using continuous shearlets"](https://arxiv.org/abs/math/0605375). arXiv preprint at arXiv:math/0605375 (2009).
