@@ -83,20 +83,6 @@ Therefore, our use of a logarithmic relationship is correct, as this is exactly 
 
 
 
-### Discrete vs continuous
-Before we move on, there is something of note: most natural signals are continuous, but if we don't know their mathematical formula, we need to describe the signal using measured data points and interpolation. This happens often, so we want to have a way to analyze these discrete signals.
-
-What does this change for Fourier? Not much: 
-- the signal $x(t)$ becomes an N-length series of points $x_n$.
-- the integral becomes a summation. This is important, as $X_k$ is not a clear 1-to-1 discrete version of X($\frac{k*f_s}{N}$). If you plan to filter in the Fourier domain and go back to time, it doesn't really matter as the inverse transform "undoes" it anyway, but if you want to analyse frequencies it matters!
-- the continuous wave frequency $\omega$ is replaced by frequency index $k$. This index is dimensionless (no Hertz), it needs to know at which rate $f_s$ you sampled your signal. $\frac{f_s}{N}$ is your frequency resolution (the width of the bin of frequencies $X_k$ resolves to or the  distance between distinct bins). 
-- $X_k$ tells us the contribution of frequency $\frac{k*f_s}{N}$ to the series $x_{0:N-1}$.
-- It acts as if your signal is periodic (repeats forever), so be careful if your signal doesn't fit
-
-
-$$X_k = \sum_{n=0}^{N-1} x_n e^{-i \frac{2\pi}{N} kn}$$
-
-
 # From Fourier to Wavelet
 So we've established that Fourier has a fundamental problem: it forces us to choose between time resolution and frequency resolution, but we really want both! We want precise time localization for high frequencies (to know exactly when that drum hit happens) and precise frequency resolution for low frequencies (to distinguish between different bass notes). This seems impossible... until wavelets came along.
 
@@ -140,9 +126,6 @@ This matches human perception perfectly! The relative frequency resolution $\fra
 You might think: why change wave types? Why don't we chop the signal $h$ times with $h$ different window lengths, apply the Fourier transform to each chopped window and then look at the high frequencies for small windows and low frequencies for large windows. And you'd be right, we could do this, but this quickly becomes a nightmare to manage: you can analyze frequencies, but how do you rebuild the signal (inverse transform)? How many times will you have to perform the fourier transform? Using a mother wavelet that is sheared an translated is just way more elegant.
 
 You can swim across a pool in front crawl, or you can tread through it like your dog does (but what a cute dog!).
-
-### From continuous to discrete
-Just like with Fourier, we often work with discrete wavelet transforms (DWT). The DWT typically uses powers of 2 for scales: $a = 2^j$ where $j$ is the scale level, and discrete translations $b = k \cdot 2^j$ where $k$ is the position index (this eliminates redundancy because lower frequency requires less samples, see the Nyquist theorem for more.).
 
 ### The remaining problem
 Wavelets solve the time-frequency resolution trade-off beautifully... for 1D signals. But what about 2D signals like images? We could just apply 1D wavelets horizontally and vertically, and indeed this works reasonably well. But it has a fundamental limitation: **directional selectivity**. Wavelets can tell you about horizontal features and vertical features, but what about diagonal edges? What about curves? An edge at 45 degrees gets split awkwardly between horizontal and vertical wavelet coefficients, leading to inefficiency. This is where shearlets come in, providing optimal directional sensitivity in 2D.
