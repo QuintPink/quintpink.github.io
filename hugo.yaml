@@ -22,10 +22,11 @@ taxonomies:
   author: authors
 
 params:
+  defaultTheme: auto
   math: true
   ShowAllPagesInArchive: true
   homeInfoParams:
-    Title: Good Morning 
+    Title: Hello, time for a coffee and some light reading?
     Content: Inspired by Lilian Weng's blog, I decided to share my own thoughts and progressions. I am currently in my first year PhD on the topic of analytically embedded neural networks for edge accelerators. I hope you take something useful away from this blog. Have fun - Quint
 
   author:
