@@ -87,7 +87,7 @@ Therefore, our use of a logarithmic relationship is correct, as this is exactly 
 So we've established that Fourier has a fundamental problem: it forces us to choose between time resolution and frequency resolution, but we really want both! We want precise time localization for high frequencies (to know exactly when that drum hit happens) and precise frequency resolution for low frequencies (to distinguish between different bass notes). This seems impossible... until wavelets came along.
 
 ### The wavelet solution: adaptive windows
-The key insight of wavelets is brilliantly simple: **use different window sizes for different frequencies**. 
+The key insight of wavelets is brilliantly simple: use different window sizes for different frequencies. 
 
 - For high frequencies: use narrow windows (good time resolution, acceptable frequency resolution)
 - For low frequencies: use wide windows (good frequency resolution, acceptable time resolution)
@@ -128,7 +128,7 @@ You might think: why change wave types? Why don't we chop the signal $h$ times w
 You can swim across a pool in front crawl, or you can tread through it like your dog does (but what a cute dog!).
 
 ### The remaining problem
-Wavelets solve the time-frequency resolution trade-off beautifully... for 1D signals. But what about 2D signals like images? We could just apply 1D wavelets horizontally and vertically, and indeed this works reasonably well. But it has a fundamental limitation: **directional selectivity**. Wavelets can tell you about horizontal features and vertical features, but what about diagonal edges? What about curves? An edge at 45 degrees gets split awkwardly between horizontal and vertical wavelet coefficients, leading to inefficiency. This is where shearlets come in, providing optimal directional sensitivity in 2D.
+Wavelets solve the time-frequency resolution trade-off beautifully... for 1D signals. But what about 2D signals like images? We could just apply 1D wavelets horizontally and vertically, and indeed this works reasonably well. But it has a fundamental limitation: directional selectivity. Wavelets can tell you about horizontal features and vertical features, but what about diagonal edges? What about curves? An edge at 45 degrees gets split awkwardly between horizontal and vertical wavelet coefficients, leading to inefficiency. This is where shearlets come in, providing optimal directional sensitivity in 2D.
 
 # From Wavelet to Shearlet
 
@@ -137,16 +137,16 @@ We ended the last section with a teaser: wavelets are amazing for 1D signals, bu
 ### The directional problem
 Imagine you have an image with a sharp diagonal edge - maybe the edge of a building against the sky. This edge is essentially a 1D feature (it varies in one direction and is constant perpendicular to that direction). Intuitively, you'd want to represent this edge efficiently with basis functions that are also aligned with that direction.
 
-But here's the catch: if you apply wavelets horizontally and vertically (separable wavelets), that diagonal edge gets detected by **both** the horizontal and vertical wavelets. You need contributions from both directions to describe a single directional feature! It's like trying to describe a perfectly diagonal line using only horizontal and vertical Lego bricks - sure, you can approximate it, but it's going to require a lot more bricks than if you could just place one diagonal brick.
+But here's the catch: if you apply wavelets horizontally and vertically (separable wavelets), that diagonal edge gets detected by both the horizontal and vertical wavelets. You need contributions from both directions to describe a single directional feature! It's like trying to describe a perfectly diagonal line using only horizontal and vertical Lego bricks - sure, you can approximate it, but it's going to require a lot more bricks than if you could just place one diagonal brick.
 
-In mathematical terms, wavelets achieve the optimal sparse representation (few coefficients needed) for point singularities, but they are **sub-optimal** for line singularities (edges, curves). Since natural images are dominated by edges and curves rather than isolated points, this is a big deal!
+In mathematical terms, wavelets achieve the optimal sparse representation (few coefficients needed) for point singularities, but they are sub-optimal for line singularities (edges, curves). Since natural images are dominated by edges and curves rather than isolated points, this is a big deal!
 
 ### Enter the shear transformation
-So how do we add directionality? The key insight is to introduce a **shear transformation** on top of the scaling. Let's build this up visually:
+So how do we add directionality? The key insight is to introduce a shear transformation on top of the scaling. Let's build this up visually:
 
 - **Isotropic scaling** (what Fourier uses): magnifies equally in all directions → no directional preference (like zooming in on an image while keeping the same aspect ratio)
 - **Anisotropic scaling** (what wavelets use): different scaling in different directions → creates elongated shapes but still aligned with axes
-- **Parabolic scaling + shear** (what shearlets use): anisotropic scaling combined with controlled tilting → creates elongated shapes at **any orientation**
+- **Parabolic scaling + shear** (what shearlets use): anisotropic scaling combined with controlled tilting → creates elongated shapes at any orientation
 
 The shear transformation is beautiful because you can continuously vary the orientation without rotation. Unlike rotation matrices which need trigonometric functions and can be computationally expensive, shear matrices are simple:
 
@@ -155,7 +155,7 @@ $$S_s = \begin{pmatrix} 1 & s \\ 0 & 1 \end{pmatrix}$$
 where $s$ controls the amount of shear (and thus the orientation). When $s=0$, you get vertical orientation; as $s$ increases, the orientation tilts.
 
 ### The shearlet transform
-The continuous shearlet transform combines three operations: **scaling**, **shearing**, and **translation**. For a 2D image $f(x_1, x_2)$, the shearlet transform is:
+The continuous shearlet transform combines three operations: scaling, shearing, and translation. For a 2D image $f(x_1, x_2)$, the shearlet transform is:
 
 $$\mathcal{SH}_\psi f(a, s, t) = \langle f, \psi_{a,s,t} \rangle = \int_{\mathbb{R}^2} f(x) \overline{\psi_{a,s,t}(x)} dx$$
 
