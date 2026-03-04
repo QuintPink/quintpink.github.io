@@ -3,7 +3,7 @@ author: "Quinten Pinkhof"
 title: "From Fourier to Shearlet"
 date: "2026-01-10"
 description: "What are Shearlets? Why would we care? And how do they relate to Fourier?"
-tags: ["shearlets", , "wavelets", "fourier"]
+tags: ["shearlets", "wavelets", "fourier"]
 ShowToc: true
 TocOpen: false
 math: true
