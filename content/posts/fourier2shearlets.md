@@ -68,7 +68,7 @@ We have
 
 $$ \Delta p_{12} = p_2 - p_1 = \log_{10}(i_2) - \log_{10}(i_1) $$
 
-furthermore, since $10^{\log_{10}(x)} = x$, we also have $$10^{\log_{10}(i_2) - \log_{10}(i_2)} = \frac{10^{log_{10}(i_2)}}{10^{\log_{10}(i_1)}} = \frac{i_2}{i_1} = 10^{\log_{10}(\frac{i_2}{i_1})}$$
+furthermore, since $10^{\log_{10}(x)} = x$, we also have $$10^{\log_{10}(i_2) - \log_{10}(i_2)} = \frac{10^{\log_{10}(i_2)}}{10^{\log_{10}(i_1)}} = \frac{i_2}{i_1} = 10^{\log_{10}(\frac{i_2}{i_1})}$$
 
 which means
 
