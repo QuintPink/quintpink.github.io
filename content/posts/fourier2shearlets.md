@@ -24,10 +24,10 @@ $$\vec{z} = a\vec{u} + b\vec{v}$$
 
 So in a 2D space, we can break down any vector $\vec{z}$ into its $\vec{u}$ and $\vec{v}$ contributions, which are $a$ and $b$ respectively. This is called decomposition. The tough part is actually finding a way to calculate $a$ and $b$. If you know the coefficients and forgot the value of $\vec{z}$, you can just recalculate it.
 
-{{</* figure src="/fourier2shearlets/images/r2decomp.svg" alt="z=au+bv" align=center caption=2D vector decomposition as an analog to Fourier decomposition*/>}}
+{{< figure src="/fourier2shearlets/images/r2decomp.svg" alt="z=au+bv" align="center" caption="2D vector decomposition as an analog to Fourier decomposition" />}}
 
-Now why does this explanation of 2D matter for Fourier? 
-Well, Fourier uses a set of waves with different frequencies to decompose the signal f(t) into, and the Fourier transform $X(f)$ tells you exactly what the contribution of the wave with frequency $f$ is! 
+Why does this matter for Fourier? 
+Fourier uses a set of waves with different frequencies to decompose the signal f(t) into (~ basis elements $\vec{u}$ and $\vec{v}$ ), and the Fourier transform $X(f)$ tells you exactly what the contribution of the wave with frequency $f$ is (~ way to calculate the coefficients $a$ and $b$). 
 
 One note: the contribution coefficient is a complex number. This way, we have a real and imaginary part working together to describe the amplitude of the wave (how tall is it) and the phase of the wave (where should its peak start)
 
