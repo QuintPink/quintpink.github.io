@@ -133,7 +133,7 @@ Wavelets solve the time-frequency resolution trade-off beautifully... for 1D sig
 
 # From Wavelet to Shearlet
 
-We ended the last section with a teaser: wavelets are amazing for 1D signals, but what happens when we move to 2D? Can we just apply wavelets separately in the horizontal and vertical directions? Sure, and it works... sort of. But there's a hidden inefficiency lurking in this approach. Easley, Labate and Lim ([2008](https://doi.org/10.1016/j.acha.2007.09.003), [Kutyniok and Labate 2009](https://arxiv.org/abs/math/0605375)) are the founding fathers of the shearlet theory, and they explain clearly what I am saying below. 
+We ended the last section with a teaser: wavelets are amazing for 1D signals, but what happens when we move to 2D? Can we just apply wavelets separately in the horizontal and vertical directions? Sure, and it works... sort of. But there's a hidden inefficiency lurking in this approach. Easley, Labate and Lim ([2008](https://doi.org/10.1016/j.acha.2007.09.003), [Kutyniok et al. 2009](https://arxiv.org/abs/math/0605375)) are the founding fathers of the shearlet theory, and they explain clearly what I am saying below. 
 
 ### The directional problem
 Imagine you have an image with a sharp diagonal edge - maybe the edge of a building against the sky. This edge is essentially a 1D feature (it varies in one direction and is constant perpendicular to that direction). Intuitively, you'd want to represent this edge efficiently with basis functions that are also aligned with that direction.
