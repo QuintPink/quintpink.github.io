@@ -14,17 +14,17 @@ Through this post, I'd like to give researchers and enthusiasts an easy go-to fo
 My explanation rests on a basic understanding of the Fourier transform, so maybe let's just start with Fourier.
 
 ### Fourier
-In its essence, the Fourier transform takes a signal or function $x(t)$ as an input, and gives you another function $X(f)$ which lets you look at $x(t)$, but through a 'frequency' lens ($f$) instead of a 'time' ($t$) lens. We say the $X(f)$ is the fourier equivalent of $x(t)$, with equivalent literally meaning that $X(f)$ describes the same thing as x(t) and you can switch between any one of the two at any time. 
+In its essence, the Fourier transform takes a signal or function $x(t)$ as an input, and gives you another function $X(f)$ which lets you look at $x(t)$, but through a 'frequency' lens ($f$) instead of a 'time' ($t$) lens. We say that $X(f)$ is the fourier equivalent of $x(t)$, with equivalent meaning that $X(f)$ describes the same thing as $x(t)$ and you can switch between any one of the two representations at any time. 
 
 #### What is watching through a 'frequency' lens? 
-To understand is, let's first take a look at the vectors in figure 1. 
-If you have two 2D linearly independent vectors, meaning they are not sitting on the same line[^1], we can combine the two vectors to form any other vector in the 2D space ($\vec{u}$ and $\vec{v}$ span the space). To do this, we scale the two vectors with respectively scale factors a and b (we say $\vec{z}$ is a linear combination of basis elements $\vec{u}$ and $\vec{v}$):
+To understand this, let's first take a look at the vectors in figure 1. 
+If you have two 2D linearly independent vectors, meaning they are not sitting on the same line[^1], we can combine the two vectors to form any other vector in the 2D space ($\vec{u}$ and $\vec{v}$ span the space). To do this, we scale the two vectors with scale factors $a$ and $b$ respectively (we say $\vec{z}$ is a linear combination of basis elements $\vec{u}$ and $\vec{v}$):
 
 $$\vec{z} = a\vec{u} + b\vec{v}$$
 
-So in a 2D space, we can break down any vector $\vec{z}$ to its $\vec{u}$ and $\vec{v}$ contributions, which are a and b respectively. This is called decomposition. The tough part is actually finding a way to calculate a and b. If we do know them and forgot the value of $\vec{z}$, we can just recalculate $\vec{z}$ because the 
+So in a 2D space, we can break down any vector $\vec{z}$ into its $\vec{u}$ and $\vec{v}$ contributions, which are $a$ and $b$ respectively. This is called decomposition. The tough part is actually finding a way to calculate $a$ and $b$. If you know the coefficients and forgot the value of $\vec{z}$, you can just recalculate it.
 
-![Figure 1](content/posts/r2decomp.svg)
+{{</* figure src="/fourier2shearlets/images/r2decomp.svg" alt="z=au+bv" align=center caption=2D vector decomposition as an analog to Fourier decomposition*/>}}
 
 Now why does this explanation of 2D matter for Fourier? 
 Well, Fourier uses a set of waves with different frequencies to decompose the signal f(t) into, and the Fourier transform $X(f)$ tells you exactly what the contribution of the wave with frequency $f$ is! 
