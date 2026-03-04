@@ -81,6 +81,7 @@ So if $\frac{i_2}{i_1} = \frac{i_4}{i_3}$ then $\Delta p_{12} = \Delta p_{34} $
 
 Therefore, our use of a logarithmic relationship is correct, as this is exactly what we wanted perception to be: an equal relative increase in intensity is an equal absolute increase in perception.
 
+{{< figure src="/fourier2shearlets/images/ylogx.svg" align="center" >}}
 
 
 # From Fourier to Wavelet
