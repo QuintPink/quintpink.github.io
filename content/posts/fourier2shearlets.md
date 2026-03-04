@@ -10,7 +10,7 @@ math: true
 ---
 Nine months ago I started a PhD. Until now, I have been working with shearlets, and will probably remain working with them until my dissertation. It seems like the shearlet transformation is the most logical thing in the world now, but once upon a time it was quite the opposite. 
 
-Through this post, I'd like to give researchers and enthusiasts an easy go-to for understanding shearlets, saving them interaction with dense mathematical papers (even though I got carried and away and included some formulas).
+Through this post, I'd like to give researchers and enthusiasts an easy go-to for understanding shearlets, saving them interaction with dense mathematical papers (even though I got carried away and included some formulas).
 
 My explanation rests on a basic understanding of the Fourier transform, so maybe let's just start with Fourier.
 
