@@ -60,22 +60,22 @@ We say humans perceive light intensity and sound intensity logarithmically. This
 
 Scientists have figured out through that perception P has a logarithmic relationship with intensity I:
 
-$$ P = log(I) $$ (very much simplified)
+$$ P = \log(I) \text{\hspace{5mm}(very much simplified so)}$$ 
 
 This corresponds to figure 2, where you can easily see that the difference in between perception between two high intensities is much smaller than the difference in perception between two low intensities. So logarithms have something to do with relativity. But we would like to proof that two equal relative intensity changes result in two equal absolute perception changes:
 
 We have
 
-$$ \Delta p_{12} = p_2 - p_1 = log_{10}(i_2) - log_{10}(i_1) $$
+$$ \Delta p_{12} = p_2 - p_1 = \log_{10}(i_2) - \log_{10}(i_1) $$
 
-furthermore, since $10^{log_{10}(x)} = x$, we also have $$10^{log_{10}(i_2) - log_{10}(i_2)} = \frac{10^{log_{10}(i_2)}}{10^{log_{10}(i_1)}} = \frac{i_2}{i_1} = 10^{log_{10}(\frac{i_2}{i_1})}$$
+furthermore, since $10^{\log_{10}(x)} = x$, we also have $$10^{\log_{10}(i_2) - \log_{10}(i_2)} = \frac{10^{log_{10}(i_2)}}{10^{\log_{10}(i_1)}} = \frac{i_2}{i_1} = 10^{\log_{10}(\frac{i_2}{i_1})}$$
 
 which means
 
-$$ log_{10}(i_2) - log_{10}(i_1) = log_{10}(\frac{i_2}{i_1}) $$
+$$ \log_{10}(i_2) - \log_{10}(i_1) = \log_{10}(\frac{i_2}{i_1}) $$
 
 which finally gets us to
-$$\Delta p_{12} = log_{10}(\frac{i_2}{i_1})$$ 
+$$\Delta p_{12} = \log_{10}(\frac{i_2}{i_1})$$ 
 
 So if $\frac{i_2}{i_1} = \frac{i_4}{i_3}$ then $\Delta p_{12} = \Delta p_{34} $
 
