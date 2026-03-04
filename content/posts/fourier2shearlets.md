@@ -25,7 +25,7 @@ $$\vec{z} = a\vec{u} + b\vec{v}$$
 
 So in a 2D space, we can break down any vector $\vec{z}$ into its $\vec{u}$ and $\vec{v}$ contributions, which are $a$ and $b$ respectively. This is called decomposition. The tough part is actually finding a way to calculate $a$ and $b$. If you know the coefficients and forgot the value of $\vec{z}$, you can just recalculate it.
 
-{{< figure src="/fourier2shearlets/images/r2decomp.svg" >}}
+{{< figure src="/fourier2shearlets/images/r2decomp.svg" align="center" caption="Figure 1">}}
 
 Why does this matter for Fourier? 
 Fourier uses a set of waves with different frequencies to decompose the signal f(t) into (~ basis elements $\vec{u}$ and $\vec{v}$ ), and the Fourier transform $X(f)$ tells you exactly what the contribution of the wave with frequency $f$ is (~ way to calculate the coefficients $a$ and $b$). 
@@ -81,7 +81,7 @@ So if $\frac{i_2}{i_1} = \frac{i_4}{i_3}$ then $\Delta p_{12} = \Delta p_{34} $
 
 Therefore, our use of a logarithmic relationship is correct, as this is exactly what we wanted perception to be: an equal relative increase in intensity is an equal absolute increase in perception.
 
-{{< figure src="/fourier2shearlets/images/ylogx.svg" align="center" >}}
+{{< figure src="/fourier2shearlets/images/ylogx.svg" align="center" caption="Figure 2" >}}
 
 
 # From Fourier to Wavelet
